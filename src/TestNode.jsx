@@ -14,7 +14,7 @@ export default ({protect}) => {
         <li>In the Emperor's name</li> 
         <li>Let none survive!</li> 
       </ul>
-      {protect && <button> Emperor protect us </button> || <div></div>}
+      {protect && <button onClick={() => alert('For the Emperor!')}> Emperor protect us </button> || <div></div>}
     </div>
   )
 }

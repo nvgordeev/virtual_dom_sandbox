@@ -2,13 +2,27 @@ const RESERVED_WORDS = {
     className: 'class'
 }
 
+function isEvent(name) {
+    return /^on/.test(name)
+}
+
+function getEventName(name) {
+    return name.slice(2).toLowerCase();
+}
+
 
 function setProps($element, props){
     for (name in props) {
-        if (RESERVED_WORDS[name]) {
-            $element.setAttribute(RESERVED_WORDS[name], props[name])    
-        } else if (props[name]) {
-            $element.setAttribute(name, props[name])
+        const prop = props[name];
+        if (isEvent(name)) {
+            $element.addEventListener(
+                getEventName(name),
+                prop
+            )
+        } else if (RESERVED_WORDS[name]) {
+            $element.setAttribute(RESERVED_WORDS[name],prop)    
+        } else if (prop) {
+            $element.setAttribute(name, prop)
         }
     }
 }
