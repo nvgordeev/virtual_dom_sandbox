@@ -3,7 +3,10 @@ import MyOwnVirtualDom from './my-own-virtual-dom.js'
 export default ({protect}) => {
   return (
     <div>
-      <h2>It is better to die for the Emperor than live for yourself!</h2>
+      <h2>
+        <input type="checkbox" checked={false}/>
+        It is better to die for the Emperor than live for yourself!
+      </h2>
       <ul className="list">
         <li>My armor is contempt</li>
         <li>My shield is disgust</li> 
