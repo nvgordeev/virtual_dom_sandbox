@@ -16,7 +16,7 @@ function createElement(element, props, ...children) {
 }
 
 const MyOwnVirtualDom = {
-  render: (element, $root) => $root.appendChild(element)
+  render: (element, $root) => $root.appendChild(element),
+  createElement
 };
-MyOwnVirtualDom.createElement = createElement;
 export default MyOwnVirtualDom;
