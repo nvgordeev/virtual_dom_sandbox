@@ -2,6 +2,13 @@ const RESERVED_WORDS = {
   className: 'class'
 };
 
+class Component {
+  constructor(props) {
+    this.props = props;
+  }
+
+}
+
 function isEvent(name) {
   return /^on/.test(name);
 }
@@ -24,6 +31,10 @@ function setProps($element, props) {
   }
 }
 
+function makeFlat(arr) {
+  return arr.reduce((acc, val) => Array.isArray(val) ? acc.concat(makeFlat(val)) : acc.concat(val), []);
+}
+
 function createElement(element, props, ...children) {
   if (typeof element === 'function') {
     return element(props || {});
@@ -31,7 +42,7 @@ function createElement(element, props, ...children) {
 
   const $root = document.createElement(element);
   setProps($root, props);
-  children && children.map(el => {
+  children && makeFlat(children).map(el => {
     if (typeof el === 'string') {
       return document.createTextNode(el);
     }
@@ -47,6 +58,7 @@ function createElement(element, props, ...children) {
 
 const MyOwnVirtualDom = {
   render: (element, $root) => $root.appendChild(element),
-  createElement
+  createElement,
+  Component
 };
 export default MyOwnVirtualDom;
