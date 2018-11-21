@@ -7,6 +7,6 @@ export function createElement(node) {
         return document.createTextNode(node);
     }
     const $root = document.createElement(node.type);
-    node.children.map(createElement).forEach($root.appendChild.bind($root))
+    node.children && node.children.map(createElement).forEach($root.appendChild.bind($root));
     return $root
 }
