@@ -1,6 +1,5 @@
-import {node} from './my-own-virtual-dom.js'
+import MyOwnVirtualDom from './my-own-virtual-dom.js'
 
-/** @jsx  */
 export default ({protect}) => {
   return (
     <div>
@@ -12,7 +11,7 @@ export default ({protect}) => {
         <li>In the Emperor's name</li> 
         <li>Let none survive!</li> 
       </ul>
-      {protect && <button> Emperor protect us </button>}
+      {protect && <button> Emperor protect us </button> || <div></div>}
     </div>
   )
 }
