@@ -1,6 +1,8 @@
 import TestNode from './TestNode.js';
-import {createElement} from './vd.js'
+import {createElement} from './my-own-virtual-dom.js'
 
 const $root = document.getElementById('root');
 
-$root.appendChild(createElement(TestNode));
+const app = TestNode({protect: true})
+
+$root.appendChild(createElement(app));
