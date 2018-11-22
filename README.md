@@ -8,6 +8,10 @@
 
 `npm run build`
 
+## Watch changes and rebuild
+
+`npm run watch`
+
 ## Start server
 
 `npm run serve`
